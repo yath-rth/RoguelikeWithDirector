@@ -1,24 +1,18 @@
 using UnityEngine;
 using Pathfinding;
 
-public class HordeMovement : MonoBehaviour
+public class HordeMovement : BaseEnemyMovement
 {
-    public enum State
-    {
-        Idle,
-        Pursue,
-        Search
-    }
-
     [SerializeField] private AIPath aiPath;
-
-    public State currentState = State.Idle;
+    [SerializeField] public Vector2 DashForce;
 
     private Transform target;
+    private Rigidbody2D rb;
 
     private void Start()
     {
         aiPath.canMove = false;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -33,39 +27,32 @@ public class HordeMovement : MonoBehaviour
                 break;
 
             case State.Search:
-
-                if (!aiPath.pathPending &&
-                    aiPath.reachedDestination)
+                if (!aiPath.pathPending && aiPath.reachedDestination)
                 {
                     EnterIdle();
                 }
-
                 break;
         }
     }
 
-    public void EnterPursue(Transform player)
+    public override void EnterPursue(Transform player)
     {
         target = player;
         currentState = State.Pursue;
-
         aiPath.canMove = true;
     }
 
-    public void Search(Vector3 lastSeenPosition)
+    public override void Search(Vector3 lastSeenPosition)
     {
         target = null;
-
         currentState = State.Search;
-
         aiPath.canMove = true;
         aiPath.destination = lastSeenPosition;
     }
 
-    public void EnterIdle()
+    public override void EnterIdle()
     {
         currentState = State.Idle;
-
         aiPath.canMove = false;
         target = null;
     }

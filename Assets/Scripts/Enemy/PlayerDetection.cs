@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerDetection : MonoBehaviour
 {
-    [SerializeField] private HordeMovement hordeMovement;
+    [SerializeField] private BaseEnemyMovement enemyMovement;
 
-    [SerializeField] private LayerMask obstacleMask;
+    [SerializeField]
+    private LayerMask obstacleMask; // Layers that block sight
 
     private Transform player;
 
@@ -14,31 +15,35 @@ public class PlayerDetection : MonoBehaviour
 
     private void Update()
     {
-        if (!playerInside || player == null)
+        if (!playerInside)
             return;
 
-        Vector2 direction =player.position - transform.position;
+        Vector2 direction = player.position - transform.position;
 
         float distance = direction.magnitude;
 
-        RaycastHit2D hit =Physics2D.Raycast(transform.position,direction.normalized, distance, obstacleMask);
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            direction.normalized,
+            distance,
+            obstacleMask);
 
-        
+        bool playerInLOS = hit.collider == null;
 
-        if (hit.collider==null)
+        if (playerInLOS)
         {
             lastSeenPosition = player.position;
 
-            if (hordeMovement.currentState != HordeMovement.State.Pursue)
+            if (enemyMovement.currentState != BaseEnemyMovement.State.Pursue)
             {
-                hordeMovement.EnterPursue(player);
+                enemyMovement.EnterPursue(player);
             }
         }
         else
         {
-            if (hordeMovement.currentState == HordeMovement.State.Pursue)
+            if (enemyMovement.currentState == BaseEnemyMovement.State.Pursue)
             {
-                hordeMovement.Search(lastSeenPosition);
+                enemyMovement.Search(lastSeenPosition);
             }
         }
     }
@@ -59,9 +64,9 @@ public class PlayerDetection : MonoBehaviour
             playerInside = false;
             player = null;
 
-            if (hordeMovement.currentState == HordeMovement.State.Pursue)
+            if (enemyMovement.currentState == BaseEnemyMovement.State.Pursue)
             {
-                hordeMovement.Search(lastSeenPosition);
+                enemyMovement.Search(lastSeenPosition);
             }
         }
     }
