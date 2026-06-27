@@ -4,8 +4,7 @@ public class PlayerDetection : MonoBehaviour
 {
     [SerializeField] private BaseEnemyMovement enemyMovement;
 
-    [SerializeField]
-    private LayerMask obstacleMask; // Layers that block sight
+    [SerializeField]private LayerMask obstacleMask; // Layers that block sight
 
     private Transform player;
 
