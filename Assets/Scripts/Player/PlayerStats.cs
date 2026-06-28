@@ -60,12 +60,12 @@ public struct PlayerStats
 
         return (float)shotsHit / shotsFired;
     }
-    public void onDamage(int amount)
+    public void OnDamage(int amount)
     {
 
         damageTakenThisroom+=amount;
     }
-    public void resetStats()//can be called to reset stats in order to keep track of current performance of player like maybe every time they enter a new room
+    public void ResetStats()//can be called to reset stats in order to keep track of current performance of player like maybe every time they enter a new room
     {
         damageTakenThisroom=0;
         shotsHit=0;
