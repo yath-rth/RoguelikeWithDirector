@@ -1,0 +1,7 @@
+﻿<Solution>
+  <Project Path="LeanTween.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="UI.csproj" />
+  <Project Path="Utility.csproj" />
+</Solution>
