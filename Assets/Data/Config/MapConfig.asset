@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fc48ad098c6c06299ce933915f2346, type: 3}
+  m_Name: MapConfig
+  m_EditorClassIdentifier: MapGeneration::MapConfig
+  roomPadding: 1
+  minRoomsPerChunk: 2
+  maxRoomsPerChunk: 10
+  maxPlacementAttempts: 50
+  minCorridorLength: 0
+  maxCorridorLength: 5
+  corridorFloorTile: {fileID: 11400000, guid: c6e01d13dfb4febfb891ff6cef695233, type: 2}
+  corridorWallTile: {fileID: 11400000, guid: 335cd9845dbc6978d927ef39b0f3305c, type: 2}
+  roomPrefabs:
+  - {fileID: 7028963997599485203, guid: 8833d582727fb903db66bb6a816dca06, type: 3}

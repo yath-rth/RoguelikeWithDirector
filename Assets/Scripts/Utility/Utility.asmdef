@@ -1,9 +1,7 @@
 {
     "name": "Utility",
     "rootNamespace": "",
-    "references": [
-        "LeanTween"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
