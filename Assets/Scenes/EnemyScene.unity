@@ -895,7 +895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1114244094}
   - component: {fileID: 1114244096}
-  - component: {fileID: 1114244095}
+  - component: {fileID: 1114244097}
   m_Layer: 6
   m_Name: InteractableZone
   m_TagString: Untagged
@@ -918,18 +918,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1399976628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1114244095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114244093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec67393b0508a649886deb720e9d056, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!58 &1114244096
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -966,6 +954,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.16
+--- !u!114 &1114244097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114244093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b11885515d655d409345ef603e7af0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Chest
 --- !u!1 &1232394438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 1399976627}
   - component: {fileID: 1399976629}
   m_Layer: 6
-  m_Name: InteractableObject
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1787,6 +1787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c13216193f49ac41b523c9d0bd3bdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  moveSpeed: 5
+  playerInput: {fileID: 0}
 --- !u!61 &1588348259
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1817,7 +1819,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1831,7 +1833,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.62, y: 2.55}
   m_EdgeRadius: 0
 --- !u!1 &1770188741
 GameObject:
@@ -1935,7 +1937,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
-  endReachedDistance: 1
+  endReachedDistance: 0
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
